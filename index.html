@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Narratif</title>
+  </head>
+  <body>
+    <div class="container">
+      <p class="signature">made by Théo Galland</p>
+
+      <div class="dialogDiv">
+        <h1>creer un dialogue :</h1>
+
+        <input type="text" placeholder="StartAnswer" id="startAnswer" class="dialogValues">
+        <input type="text" placeholder="DialogText" id="dialogText" class="dialogValues">
+        <div class="multiInputs">
+          <input type="text" placeholder="answer1" id="answer1" class="dialogValues">
+        </div>
+        <button class="dialogButton">creer</button>
+      </div>
+    </div>
+
+    <div class="editor"></div>
+
+    <div class="playField">
+      <button class="playButton">tester</button>
+    </div>
+
+    <script src="js/GameNodes.js"></script>
+    <script src="js/JSONManager.js"></script>
+    <script src="js/UIManager.js"></script>
+    <script src="js/GameManager.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+
+html {
+	min-height: 100%;
+	background-image: radial-gradient(rgba(117, 190, 218, 0.0), #0A1C27), url(images/BG.png);
+	background-color: #828284;
+	background-repeat: no-repeat;
+}
+
+.dialogDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 17%;
+}
+
+.playField {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.multiInputs {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.container {
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1, p {
+    color: #ffffff;
+    font-family: 'gilroylight';
+}
+
+.signature {
+    display: block;
+    position: absolute;
+    right: 2%;
+    top: 1%;
+}
+
+input {
+    width: 20%;
+}
+
+button {
+    padding: 1%;
+    margin: 2%;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'gilroylight';
+    color: white;
+    background-color: #1C324F;
+    border: none;
+}
+
+button:hover {
+    background-color: #112034;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: 'gilroylight';
+    src: url('fonts/gilroy-light-webfont.woff2') format('woff2'),
+         url('fonts/gilroy-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
