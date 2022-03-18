@@ -3,12 +3,16 @@
 let firstInput = document.querySelector("#answer1");
 let dialogButton = document.querySelector('.dialogButton');
 
+let showDialogsButton = document.querySelector(".showDialogs");
+
 //--------------------------------------------------event listeners----------------------------------------------------------//
 
 firstInput.addEventListener("focusin", addInput);
 firstInput.addEventListener("focusout", removeInput);
 
 dialogButton.addEventListener("click", createDialog);
+
+showDialogsButton.addEventListener("click", showDialogs);
 
 //-----------------------------------------------------fonctions-------------------------------------------------------------//
 
@@ -72,7 +76,7 @@ function createDialog() {
         if (i < 2) {
             values.push(nodes[i].value);
         } else {
-            dialog = new DialogNode(nodes[i].value, "");
+            dialog = new DialogNode(nodes[i].value, "dialogueVide");
             dialog.StoreData(GameData);
             values.push(dialog.id);
         }
@@ -85,22 +89,13 @@ function createDialog() {
 }
 
 function showDialogs() {
-    let editorDiv = document.querySelector(".editor");
+    let dialogCardsDiv = document.querySelector(".allDialogCards");
+    dialogCardsDiv.innerHTML = "";
     for (let dialog of Object.entries(GameData["Dialogs"])) {
-        console.log(dialog[1].startAnswer);
         let cardDiv = document.createElement("div");
-        let pStartAnswer = document.createElement("p");
-        pStartAnswer.textContent = dialog[1].startAnswer;
-        let pDialogText = document.createElement("p");
-        pDialogText.textContent = dialog[1].dialogText;
-        let answersDiv = document.createElement("div");
-        for (answer of dialog[1].answers) {
-            let answerP = document.createElement("p");
-            answerP.textContent = answer;
-            answersDiv.appendChild(answerP);
-        }
-        
+        cardDiv.className = "DialogCard";
+        dialogNode = createNodeByID(dialog[0]);
+        dialogNode.ShowDialog(cardDiv, true);
+        dialogCardsDiv.appendChild(cardDiv);
     }
 }
-
-

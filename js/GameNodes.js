@@ -53,9 +53,20 @@ class DialogNode {
     }
 
     ShowDialog(parent, inEditor) {
-        let p = document.createElement('p');
-        p.textContent = this.dialogText;
-        parent.appendChild(p);
+        if (this.Type == DialogType.Empty) {
+            let p = document.createElement("p");
+            p.textContent = "ce dialogue est vide";
+            parent.appendChild(p);
+            return;
+        }
+        if (inEditor != undefined && inEditor) {
+            let p1 = document.createElement("p");
+            p1.textContent = (this.startAnswer == undefined) ? "X" : this.startAnswer; 
+            parent.appendChild(p1);
+        }
+        let p2 = document.createElement('p');
+        p2.textContent = (this.dialogText == undefined) ? "X" : this.dialogText;
+        parent.appendChild(p2);
         let answersDiv = document.createElement('div');
         answersDiv.className = "answers";
         if (this.Type == DialogType.Beginning || this.Type == DialogType.Middle) {
@@ -71,13 +82,18 @@ class DialogNode {
                         answer.ShowDialog(parent);
                     });
                 }
-                newElem.textContent = answer.startAnswer;
+                newElem.textContent = "id : " + answer.id + "\n" + answer.startAnswer;
                 parent.appendChild(newElem);
             }
             parent.appendChild(answersDiv);
+        } else {
+            let p = document.createElement("p");
+            p.textContent = "pas de reponses définies";
+            answersDiv.appendChild(p);
         }
     }
 
+    /*
     ShowDialogInEditor(parent) {
         let p = document.createElement('p');
         p.textContent = this.dialogText;
@@ -95,7 +111,7 @@ class DialogNode {
             parent.appendChild(answersDiv);
         }
     }
-
+*/
     StoreData(dataDic) {
         let newDico;
         switch(this.Type.type) {

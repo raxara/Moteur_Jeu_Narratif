@@ -66,6 +66,9 @@ function getStartAnswerByID(id) {
         if (id in GameData["Dialogs"]) {
             return GameData["Dialogs"][id].startAnswer;
         }
+        else {
+            return false;
+        }
     }
 }
 
